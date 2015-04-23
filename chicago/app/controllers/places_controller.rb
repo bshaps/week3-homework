@@ -6,8 +6,9 @@ class PlacesController < ActionController::Base
 	
 	def show		
 		@place = Place.find_by(:id => params["id"])
+		@reviews = Review.all
 		if @place.nil?
-		  redirect_to "/places", notice: "Place not found."
+			redirect_to "/places", notice: "Place not found."
 		end
 	end
 	
@@ -33,19 +34,29 @@ class PlacesController < ActionController::Base
 	def edit
 		@place = Place.find_by(:id => params["id"])
 		if @place.nil?
-		  redirect_to "/places", notice: "Place not found."
+			redirect_to "/places", notice: "Place not found."
 		end
 	end
 	
 	def update
 		@place = Place.find_by(:id => params["id"])
 		if @place.nil?
-		  redirect_to "/places", notice: "Place not found."
+			redirect_to "/places", notice: "Place not found."
 		else
-		  @place.description = params["description"]
-		  @place.save
-		  redirect_to "/places/#{@place.id}", notice: "Place updated."
+			@place.description = params["description"]
+			@place.save
+			redirect_to "/places/#{@place.id}", notice: "Place updated."
 		end		
+	end
+	
+	def review
+		review = Review.new
+		review.place = params[:id]
+		review.title = params[:title]
+		review.rating = params[:rating]
+		review.review = params[:review]
+		review.save
+		redirect_to "/places/#{params[:id]}", notice: "Review added."
 	end
 
 end

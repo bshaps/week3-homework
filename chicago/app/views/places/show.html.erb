@@ -21,15 +21,34 @@
     margin-top: 24px;
     margin-bottom: 24px;
   }
+  form {
+  }
 </style>
 
 <h2><%= @place.title %></h2>
 <%= image_tag @place.photo_url %>
 <p>
-  <span class="admission">Price <%= @place.admission_price %></span>  
+  <span class="admission">Price <%= number_to_currency(@place.admission_price/100.0) %></span>  
 </p>
 
 <p>
   <h4>Description: <%= @place.description %></h4>
+  <%= link_to "Edit Description", "/places/#{@place.id}/edit" %>
 </p>
-<%= link_to "Edit Description", "/places/#{@place.id}/edit" %>
+
+<form action="/places/<%= @place.id %>/review">
+	<h3>Add a Review</h3>
+	Title: <input name="title"><br><br>
+	Rating (0-5): <input type="number" name="rating" min="0" max="5"><br><br>
+	Review: <br><textarea cols="30" rows="5" name="review"></textarea><br>  <br> 
+	<button>Submit Review</button>
+</form>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>Title: <%= review.title %><br>
+		Rating: <%= review.rating %><br><br>
+		Review: <%= review.review %><br><br><br>
+	</li>
+  <% end %>
+</ul>

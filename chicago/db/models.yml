@@ -12,4 +12,11 @@ Place
  title: string
  photo_url: text
  admission_price: integer
- description: text
+ description: text 
+ 
+Review
+ id: integer
+ place: integer
+ title: string
+ rating: integer
+ review: text

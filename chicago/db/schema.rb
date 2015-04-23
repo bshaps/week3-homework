@@ -20,4 +20,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.text    "description"
   end
 
+  create_table "reviews", force: true do |t|
+    t.string  "title"
+    t.integer "rating"
+    t.text    "review"
+    t.integer "place"
+  end
+
 end

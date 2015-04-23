@@ -6,7 +6,7 @@ class PlacesController < ActionController::Base
 	
 	def show		
 		@place = Place.find_by(:id => params["id"])
-		@reviews = Review.all
+		@reviews = Review.all.where(:place => params["id"]).order("id DESC")
 		if @place.nil?
 			redirect_to "/places", notice: "Place not found."
 		end

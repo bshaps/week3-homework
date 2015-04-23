@@ -1,0 +1,14 @@
+<style>
+  h1 {
+    border-bottom: solid 3px gray;
+    margin-bottom: 24px;
+  }
+</style>
+<h1>Add a Place</h1>
+<form action="/places/create">
+	Name of place:<br> <input name="title"><br> <br> 
+	Photo url:<br> <input type="url" name="url"><br> <br> 
+	Admission price: <br> <input name="admission" type="number"><br> <br> 
+	Description: <br><textarea cols="20" rows="5" name="description"></textarea><br>  <br> 
+	<button>Submit</button>
+</form>

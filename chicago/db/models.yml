@@ -1,0 +1,15 @@
+# Example table for a typical Book model.
+#
+# Book
+#   title: string
+#   author_id: integer
+#   price: integer
+#   summary: text
+#   hardcover: boolean
+#
+Place
+ id: integer
+ title: string
+ photo_url: text
+ admission_price: integer
+ description: text

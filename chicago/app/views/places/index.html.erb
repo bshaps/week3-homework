@@ -1,0 +1,15 @@
+<style>
+  h1 {
+    border-bottom: solid 3px gray;
+    margin-bottom: 24px;
+  }
+</style>
+<h1>Amazing Places</h1>
+
+<ul>
+  <% @places.each do |place| %>
+    <li><%= link_to place.title, "/places/#{place.id}" %> - <%= link_to "delete", "/places/#{place.id}/delete" %></li>
+  <% end %>
+</ul>
+
+All information and images are courtesy of Wikipedia.

@@ -1,0 +1,34 @@
+<style>
+  h2 {
+    color: white;
+    background: #555;
+    padding: 6px;
+    text-align: center;
+  }
+  .admission {
+    color: gray;
+    border: solid 1px gray;
+    padding: 4px;
+  }
+  img {
+    float: left;
+    margin-right: 40px;
+	margin-bottom: 40px;
+    box-shadow: 8px 8px 4px gray;
+    width: "400px";
+  }
+  p {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+</style>
+
+<h2><%= @place.title %></h2>
+<%= image_tag @place.photo_url %>
+<p>
+  <span class="admission">Price <%= @place.admission_price %></span>  
+</p>
+
+<p>
+  <h4>Description: <%= @place.description %></h4>
+</p>
